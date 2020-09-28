@@ -15,15 +15,17 @@
     "license": "LGPL-3.0",
     "icon": "assets/visp/icon.png",
 
-    "environment": "*",
-    "entrypoints": {},
+    "environment": "client",
+    "entrypoints": {
+        "client": [
+            "user11681.visp.Visp"
+        ],
+        "modmenu": [
+            "user11681.visp.integration.VispModMenuIntegration"
+        ]
+    },
 
     "mixins": [
         "visp.mixins.json"
-    ],
-
-    "depends": {
-        "fabricloader": ">=0.9.3+build.207",
-        "minecraft": "1.16.3"
-    }
+    ]
 }

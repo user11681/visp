@@ -3,9 +3,12 @@
     "minVersion": "0.8",
     "package": "user11681.visp.asm.mixin",
     "compatibilityLevel": "JAVA_8",
-    "mixins": [
-    ],
     "client": [
+        "ClientPlayNetworkHandlerMixin",
+        "HandledScreenMixin",
+        "MinecraftClientMixin",
+        "PlayerInventoryAccess",
+        "ScreenHandlerMixin"
     ],
     "injectors": {
         "defaultRequire": 1

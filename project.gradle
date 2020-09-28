@@ -1,1 +1,17 @@
-version = "0.0.0"
+project.version = "0.0.0"
+
+dependencies {
+//    modApi("${project.globalOptions}")
+//    modApi("${project.api}")
+    modApi(include("${project.apiResourceLoader}"))
+    modApi("${project.modMenu}") {
+        transitive(false)
+    }
+    modApi("${project.basicMath}")
+    modApi(include("${project.autoConfig}")) {
+        transitive(false)
+    }
+    modApi(include("${project.clothConfig}")) {
+        transitive(false)
+    }
+}
