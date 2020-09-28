@@ -2,6 +2,7 @@ package user11681.visp.asm.mixin;
 
 import java.io.DataOutputStream;
 import java.io.FileOutputStream;
+import java.io.IOException;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.minecraft.client.MinecraftClient;
@@ -42,7 +43,7 @@ abstract class MinecraftClientMixin {
                 }
 
                 saveTag.write(new DataOutputStream(new FileOutputStream(Visp.saveFile)));
-            } catch (final Throwable throwable) {
+            } catch (final IOException throwable) {
                 throw new RuntimeException(throwable);
             }
         }
