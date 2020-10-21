@@ -25,18 +25,18 @@ abstract class MinecraftClientMixin {
         final ClientPlayerEntity player = ((MinecraftClient) (Object) this).player;
 
         if (player != null) {
-            try {
-                final CompoundTag saveTag = new CompoundTag();
-                final ListTag previousTag = new ListTag();
+            final CompoundTag saveTag = new CompoundTag();
+            final ListTag previousTag = new ListTag();
 
-                for (final ItemStack itemStack : Visp.filteredStacks) {
-                    if (!itemStack.isEmpty()) {
-                        previousTag.add(itemStack.toTag(new CompoundTag()));
-                    }
+            for (final ItemStack itemStack : Visp.filteredStacks) {
+                if (!itemStack.isEmpty()) {
+                    previousTag.add(itemStack.toTag(new CompoundTag()));
                 }
+            }
 
-                saveTag.put("previous", previousTag);
+            saveTag.put("previous", previousTag);
 
+            try {
                 if (!Visp.saveFile.exists()) {
                     Visp.saveFile.getParentFile().mkdirs();
                     Visp.saveFile.createNewFile();

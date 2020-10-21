@@ -8,8 +8,8 @@ plugins {
 
 apply(from: "project.gradle")
 
-sourceCompatibility = JavaVersion.VERSION_1_8
-targetCompatibility = JavaVersion.VERSION_1_8
+sourceCompatibility = 8
+targetCompatibility = 8
 
 project.group = "user11681"
 
@@ -34,11 +34,7 @@ dependencies {
     mappings("net.fabricmc:yarn:${project.minecraftVersion}+build.${project.yarn}:v2")
     modImplementation("net.fabricmc:fabric-loader:+")
 
-    compileOnly("${project.jsr}")
-
     testImplementation("${project.junit}")
-
-//    modImplementation "com.jamieswhiteshirt:developer-mode:1.0.15"
 }
 
 configurations.all {
