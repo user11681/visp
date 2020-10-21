@@ -30,9 +30,9 @@ abstract class ClientPlayNetworkHandlerMixin {
         final IntegratedServer integratedServer = Visp.client.getServer();
 
         if (integratedServer == null) {
-            Visp.saveFile = new File(FabricLoader.getInstance().getConfigDir().resolve("visp").resolve("remote").toFile(), Visp.client.getCurrentServerEntry().address + ".dat");
+            Visp.saveFile = new File(FabricLoader.getInstance().getConfigDir().resolve(Visp.ID).resolve("remote").toFile(), Visp.client.getCurrentServerEntry().address + ".dat");
         } else {
-            Visp.saveFile = new File(FabricLoader.getInstance().getConfigDir().resolve("visp").resolve("local").toFile(), integratedServer.getSaveProperties().getLevelName() + ".dat");
+            Visp.saveFile = new File(FabricLoader.getInstance().getConfigDir().resolve(Visp.ID).resolve("local").toFile(), integratedServer.getSaveProperties().getLevelName() + ".dat");
         }
 
         if (Visp.saveFile.exists()) {

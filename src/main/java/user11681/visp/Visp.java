@@ -19,7 +19,10 @@ import user11681.visp.config.VispConfiguration;
 @Environment(EnvType.CLIENT)
 @SuppressWarnings("ConstantConditions")
 public class Visp implements ClientModInitializer {
+    public static final String ID = "visp";
+
     public static final MinecraftClient client = MinecraftClient.getInstance();
+
     public static int inventorySize;
     public static ReferenceOpenHashSet<ItemStack> filteredStacks;
     public static ListTag deserializedFilter;
