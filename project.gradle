@@ -1,8 +1,6 @@
-project.version = "0.0.1"
+project.version = "0.0.2"
 
 dependencies {
-//    modApi("${project.globalOptions}")
-//    modApi("${project.api}")
     modApi(include("${project.apiResourceLoader}"))
     modApi("${project.modMenu}") {
         transitive(false)
@@ -14,4 +12,5 @@ dependencies {
     modApi(include("${project.clothConfig}")) {
         transitive(false)
     }
+    modApi("${project.narratorOff}")
 }
