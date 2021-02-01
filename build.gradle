@@ -1,0 +1,20 @@
+plugins {
+    id("wheel").version("snapshot")
+}
+
+project.with {
+    group("user11681")
+    version("0.1.0")
+}
+
+wheel {
+    minecraftVersion = "1.16.5"
+}
+
+dependencies {
+    modInclude("api-base")
+    modInclude("api-resource-loader:0.3.1+facf3bbf95")
+    bloatedInclude("auto-config")
+    bloatedInclude("cloth-config:4.+")
+    intransitive("mod-menu:1.14+")
+}

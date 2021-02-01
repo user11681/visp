@@ -1,0 +1,12 @@
+pluginManagement {
+    repositories {
+        mavenLocal()
+        jcenter()
+        gradlePluginPortal()
+
+        maven {url = "https://dl.bintray.com/user11681/maven"}
+        maven {url = "https://maven.fabricmc.net"}
+    }
+}
+
+include(":testmod")

@@ -1,0 +1,29 @@
+{
+    "schemaVersion": 1,
+    "id": "visp",
+    "version": "${version}",
+
+    "name": "Visp",
+    "description": "a mod that highlights newly collected item stacks in the inventory",
+    "authors": [
+        "user11681"
+    ],
+    "contact": {
+        "sources": "https://github.com/user11681/visp",
+        "issues": "https://github.com/user11681/visp/issues",
+        "homepage": "https://www.curseforge.com/minecraft/mc-mods/visp"
+    },
+
+    "license": "LGPL-3.0",
+    "icon": "assets/visp/icon.png",
+
+    "environment": "client",
+    "entrypoints": {
+        "client": ["user11681.visp.Visp"],
+        "modmenu": ["user11681.visp.VispModMenuIntegration"]
+    },
+
+    "mixins": [
+        "visp.mixins.json"
+    ]
+}

@@ -1,0 +1,13 @@
+package user11681.visp;
+
+import io.github.prospector.modmenu.api.ConfigScreenFactory;
+import io.github.prospector.modmenu.api.ModMenuApi;
+import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
+import net.minecraft.client.gui.screen.Screen;
+
+public class VispModMenuIntegration implements ModMenuApi {
+    @Override
+    public ConfigScreenFactory<?> getModConfigScreenFactory() {
+        return (Screen parent) -> AutoConfig.getConfigScreen(VispConfiguration.class, parent).get();
+    }
+}
