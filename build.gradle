@@ -3,7 +3,7 @@ plugins {
 }
 
 group = "user11681"
-version = "0.2.0"
+version = "0.2.1"
 
 dependencies {
     modInclude("api-base")
