@@ -19,7 +19,7 @@
 
     "environment": "client",
     "entrypoints": {
-        "client": ["user11681.visp.Visp"],
+        "client": ["user11681.visp.Visp::init"],
         "modmenu": ["user11681.visp.VispModMenuIntegration"]
     },
 
