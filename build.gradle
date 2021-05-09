@@ -1,15 +1,9 @@
 plugins {
-    id("wheel").version("snapshot")
+    id("wheel").version("0-SNAPSHOT")
 }
 
-project.with {
-    group("user11681")
-    version("0.1.0")
-}
-
-wheel {
-    minecraftVersion = "1.16.5"
-}
+group = "user11681"
+version = "0.1.0"
 
 dependencies {
     modInclude("api-base")

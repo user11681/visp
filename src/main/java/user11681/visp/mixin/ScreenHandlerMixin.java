@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 import user11681.visp.Visp;
-import user11681.visp.VispConfiguration;
+import user11681.visp.config.VispConfiguration;
 
 @Environment(EnvType.CLIENT)
 @Mixin(ScreenHandler.class)

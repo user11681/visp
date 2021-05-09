@@ -1,4 +1,12 @@
 {
     "text.autoconfig.visp.title": "Visp",
-    "text.autoconfig.visp.option.highlightExistingItemStacks": "highlight existing item stacks"
+    "text.autoconfig.visp.option.highlightExistingItemStacks": "highlight existing item stacks",
+    "text.autoconfig.visp.option.fill":  "fill entire slot",
+    "text.autoconfig.visp.option.useGlobalColor": "use global color",
+    "text.autoconfig.visp.option.globalColor":  "global color",
+    "text.autoconfig.visp.option.colors":  "rarity colors",
+    "text.autoconfig.visp.option.colors.rare":  "rare",
+    "text.autoconfig.visp.option.colors.epic":  "epic",
+    "text.autoconfig.visp.option.colors.uncommon":  "uncommon",
+    "text.autoconfig.visp.option.colors.common":  "common"
 }

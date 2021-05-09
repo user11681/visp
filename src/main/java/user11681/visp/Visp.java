@@ -4,6 +4,7 @@ import it.unimi.dsi.fastutil.objects.ReferenceOpenHashSet;
 import java.io.File;
 import java.util.Collection;
 import java.util.List;
+import java.util.Map;
 import me.sargunvohra.mcmods.autoconfig1u.AutoConfig;
 import me.sargunvohra.mcmods.autoconfig1u.serializer.Toml4jConfigSerializer;
 import net.fabricmc.api.ClientModInitializer;
@@ -13,12 +14,15 @@ import net.minecraft.client.MinecraftClient;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.ListTag;
 import net.minecraft.util.collection.DefaultedList;
+import user11681.visp.config.MapEntry;
+import user11681.visp.config.VispConfiguration;
 import user11681.visp.mixin.PlayerInventoryAccess;
 
 @Environment(EnvType.CLIENT)
 @SuppressWarnings("ConstantConditions")
 public class Visp implements ClientModInitializer {
     public static final String ID = "visp";
+    public static final int COMMON = 0xFFA0FFA0;
 
     public static final MinecraftClient client = MinecraftClient.getInstance();
 
@@ -40,5 +44,6 @@ public class Visp implements ClientModInitializer {
     @Override
     public void onInitializeClient() {
         VispConfiguration.instance = AutoConfig.register(VispConfiguration.class, Toml4jConfigSerializer::new).getConfig();
+        AutoConfig.getGuiRegistry(VispConfiguration.class).registerTypeProvider(new MapEntry(), Map.class);
     }
 }
