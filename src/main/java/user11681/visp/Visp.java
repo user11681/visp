@@ -40,7 +40,7 @@ public class Visp {
         return storage;
     }
 
-    public static void init() throws Throwable {
+    public static void init() {
         VispConfiguration.instance = AutoConfig.register(VispConfiguration.class, GsonConfigSerializer::new).getConfig();
         AutoConfig.getGuiRegistry(VispConfiguration.class).registerTypeProvider(new MapEntry(), Map.class);
     }
