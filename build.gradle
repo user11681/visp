@@ -1,5 +1,5 @@
 plugins {
-    id("wheel").version("0-SNAPSHOT")
+    id("wheel-fabric").version("latest.integration")
 }
 
 group = "user11681"
