@@ -7,8 +7,8 @@ version = "0.3.0"
 
 dependencies {
     modInclude("api-base")
-    modInclude("api-resource-loader:0.3.1+facf3bbf95")
+    modInclude("api-resource-loader")
     bloatedInclude("auto-config")
-    bloatedInclude("cloth-config:4.+")
+    bloatedInclude("cloth-config")
     intransitive("mod-menu:1.14+")
 }
