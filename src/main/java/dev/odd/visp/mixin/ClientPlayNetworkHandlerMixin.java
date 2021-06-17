@@ -1,18 +1,14 @@
-package user11681.visp.mixin;
+package dev.odd.visp.mixin;
 
+import dev.odd.visp.Visp;
 import it.unimi.dsi.fastutil.objects.ReferenceArrayList;
 import it.unimi.dsi.fastutil.objects.ReferenceOpenHashSet;
-import java.io.DataInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.network.ClientPlayNetworkHandler;
 import net.minecraft.item.ItemStack;
-import net.minecraft.nbt.CompoundTag;
-import net.minecraft.nbt.ListTag;
-import net.minecraft.nbt.PositionTracker;
+import net.minecraft.nbt.NbtCompound;
+import net.minecraft.nbt.NbtList;
+import net.minecraft.nbt.NbtTagSizeTracker;
 import net.minecraft.network.packet.s2c.play.GameJoinS2CPacket;
 import net.minecraft.network.packet.s2c.play.ScreenHandlerSlotUpdateS2CPacket;
 import net.minecraft.server.integrated.IntegratedServer;
@@ -20,13 +16,15 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import user11681.visp.Visp;
 
-@Environment(EnvType.CLIENT)
+import java.io.DataInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+
 @Mixin(ClientPlayNetworkHandler.class)
 abstract class ClientPlayNetworkHandlerMixin {
     @Inject(method = "onGameJoin", at = @At("RETURN"))
-    public void loadInventory(GameJoinS2CPacket packet, CallbackInfo info) throws Throwable {
+    public void loadInventory(GameJoinS2CPacket packet, CallbackInfo ci) throws Throwable {
         final IntegratedServer integratedServer = Visp.client.getServer();
 
         if (integratedServer == null) {
@@ -36,9 +34,9 @@ abstract class ClientPlayNetworkHandlerMixin {
         }
 
         if (Visp.saveFile.exists()) {
-            final CompoundTag saveTag = CompoundTag.READER.read(new DataInputStream(new FileInputStream(Visp.saveFile)), 0, new PositionTracker(2097152L));
+            final NbtCompound saveTag = NbtCompound.TYPE.read(new DataInputStream(new FileInputStream(Visp.saveFile)), 0, new NbtTagSizeTracker(2097152L));
 
-            Visp.deserializedFilter = (ListTag) saveTag.get("previous");
+            Visp.deserializedFilter = (NbtList) saveTag.get("previous");
         }
 
         Visp.inventorySize = Visp.getInventory(ReferenceArrayList.wrap(new ItemStack[41], 0)).size();
@@ -52,7 +50,7 @@ abstract class ClientPlayNetworkHandlerMixin {
                 final int previousCount = Visp.deserializedFilter.size();
 
                 for (int i = 0; i < previousCount; i++) {
-                    if (ItemStack.areEqual(packet.getItemStack(), ItemStack.fromTag(Visp.deserializedFilter.getCompound(i)))) {
+                    if (ItemStack.areEqual(packet.getItemStack(), ItemStack.fromNbt(Visp.deserializedFilter.getCompound(i)))) {
                         Visp.filteredStacks.add(packet.getItemStack());
                         Visp.deserializedFilter.remove(i);
 

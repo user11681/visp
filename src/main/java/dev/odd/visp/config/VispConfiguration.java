@@ -1,19 +1,17 @@
-package user11681.visp.config;
+package dev.odd.visp.config;
+
+import dev.odd.visp.Visp;
+import me.shedaniel.autoconfig.ConfigData;
+import me.shedaniel.autoconfig.annotation.Config;
+import me.shedaniel.autoconfig.annotation.ConfigEntry;
+import net.minecraft.util.Rarity;
 
 import java.util.EnumMap;
 import java.util.Map;
-import me.sargunvohra.mcmods.autoconfig1u.ConfigData;
-import me.sargunvohra.mcmods.autoconfig1u.annotation.Config;
-import me.sargunvohra.mcmods.autoconfig1u.annotation.Config.Gui.Background;
-import me.sargunvohra.mcmods.autoconfig1u.annotation.ConfigEntry.ColorPicker;
-import me.sargunvohra.mcmods.autoconfig1u.annotation.ConfigEntry.Gui.Excluded;
-import net.minecraft.util.Rarity;
-import user11681.visp.Visp;
 
 @Config(name = Visp.ID)
-@Background("textures/block/andesite.png")
 public class VispConfiguration implements ConfigData {
-    @Excluded
+    @ConfigEntry.Gui.Excluded
     public static transient VispConfiguration instance;
 
     public boolean highlightExistingItemStacks;
@@ -22,7 +20,7 @@ public class VispConfiguration implements ConfigData {
 
     public boolean useGlobalColor;
 
-    @ColorPicker(allowAlpha = true)
+    @ConfigEntry.ColorPicker(allowAlpha = true)
     public int globalColor = Visp.COMMON;
 
     public Map<Rarity, Integer> colors = new EnumMap<>(Rarity.class);

@@ -1,15 +1,13 @@
-package user11681.visp.mixin;
+package dev.odd.visp.mixin;
 
-import java.util.List;
-import net.fabricmc.api.EnvType;
-import net.fabricmc.api.Environment;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.collection.DefaultedList;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.gen.Accessor;
 
-@Environment(EnvType.CLIENT)
+import java.util.List;
+
 @Mixin(PlayerInventory.class)
 public interface PlayerInventoryAccess {
     @Accessor("combinedInventory")

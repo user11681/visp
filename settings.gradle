@@ -1,9 +1,11 @@
 pluginManagement {
     repositories {
         mavenCentral()
-
-        maven {url = "https://maven.fabricmc.net"}
-        maven {url = "https://auoeke.jfrog.io/artifactory/maven"}
+        maven {
+            name = 'Fabric'
+            url = 'https://maven.fabricmc.net/'
+        }
+        gradlePluginPortal()
     }
 }
 

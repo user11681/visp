@@ -1,7 +1,33 @@
-.*
+# gradle
 
-!.gitignore
+.gradle/
+build/
+out/
+classes/
 
-build
-out
-run
+# eclipse
+
+*.launch
+
+# idea
+
+.idea/
+*.iml
+*.ipr
+*.iws
+
+# vscode
+
+.settings/
+.vscode/
+bin/
+.classpath
+.project
+
+# macos
+
+*.DS_Store
+
+# fabric
+
+run/
